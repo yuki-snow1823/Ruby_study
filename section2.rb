@@ -21,3 +21,6 @@ address3 = {:name => "yuki", :kanzi => "優希"}
 address3.each do |key, value|
   puts "#{key}：#{value}"
 end
+
+# 正規表現はマッチングするとその位置を返してくれる /Ruby/iの場合は大文字小文字を対象としない
+puts /Ruby/ =~ "yet anothe Ruby hacker"
