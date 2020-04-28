@@ -7,8 +7,8 @@ name = ARGV[0]
 puts "こんにちは" + name
 
 # 例えばファイルを開いて中身を出力するプログラムも作ることができる
-pattern = Regexp.new(ARGV[0])
-filename = ARGV[1]
+pattern = Regexp.new(ARGV[0]) # 入力された一つ目
+filename = ARGV[1] # 2つめ
 
 file = File.open(filename)
 file.each do |line|
@@ -25,4 +25,3 @@ end
 
 # requireを使えば、他のファイルのメソッドも呼び出せる
 hello()
-
