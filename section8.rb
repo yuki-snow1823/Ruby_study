@@ -111,11 +111,28 @@ module HelloModule
   Version =1.1
 
   def hello(name)
-    puts "hello #{name}"
+    puts "#{self} + hello #{name}"
   end
-  module_function :hello　# 外部に公開することで使える状態にしている
+  # module_function :hello 外部に公開することで使える状態にしている
 end
 
 include HelloModule
 p HelloModule::Version
 p Version  #インクルードしているからこれだけでもでる
+
+# extendメソッド
+
+str = "楽しいRuby"
+str.extend(HelloModule)
+p str.hello("bob")
+
+
+# オブジェクト指向の特徴
+# カプセル化、ポリモーフィズム：いろんなメソッドがいろんなオブジェクトで別の結果を生み出すこと
+
+require "net/http"
+require "uri"
+url = URI.parse("http://www.ruby-lang.org/ja/") # データを解析して集合にする
+http = Net::HTTP.start(url.host, url.port)
+doc = http.get(url.path)
+puts doc.body
