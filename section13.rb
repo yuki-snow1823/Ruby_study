@@ -62,3 +62,9 @@ p f
 # end
 # 10から10個入れるのを１０回
 # p result
+
+line = '1
+2'
+line.map(&:chomp >> :to_i)
+
+p line
