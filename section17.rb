@@ -12,11 +12,38 @@
 p $stdin
 
 3.times do |i|
-  $stdout.puts "#{Random.rand}"
+  $stdout.puts "#{Random.rand}" # ruby section17.rb > log.txt とすれば
   $stderr.puts "#{i+1}回出力しました。"
 end
 p $stdout
 p $stderr
 
-# ruby section17.rb > log.txt とすれば、データを作って標準出力だけ排出してくれる。
+#6 データを作って標準出力だけ排出してくれる。
 # だから処理を表示しつつ、エラーログだけ他の場所に残すなどのことができる。
+
+# 標準出力と、標準エラー出力を使い分けましょうねってこと
+
+# 実際にブラウザで開くというわけではない？
+file = File.open("log.txt")
+file.close
+p file.closed?
+
+text = File.read("log.txt")
+p text
+
+# バイナリーデータとは：https://wa3.i-3-i.info/word1146.html
+
+# 試しにioクラスのサブクラスであるfileで試してみるとこうなる
+while line = file.gets # 標準入力として取るという意味だろうか
+  p line.chomp!
+end
+p file.eof?
+
+# 標準入力・出力に関する様々なメソッドがある
+
+File.open("log.txt") do |io|
+  p io.read(5) #場所の決め打ち
+  p io.pos
+  io.pos = 0
+  p io
+end
