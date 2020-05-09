@@ -25,7 +25,7 @@ p $stderr
 
 # 実際にブラウザで開くというわけではない？
 file = File.open("log.txt")
-file.close
+# file.close
 p file.closed?
 
 text = File.read("log.txt")
@@ -47,3 +47,33 @@ File.open("log.txt") do |io|
   io.pos = 0
   p io
 end
+
+# バッファ プログラム内部に作られるioオブジェクトのコピー
+
+# 1
+def wc(file)
+  nline = nword = nchar = 0
+  File.open(file){|io|
+    io.each{|line|
+      words = line.split(/\s+/).reject{|w| w.empty? }
+      nline += 1
+      nword += words.length
+      nchar += line.length
+    }
+  }
+  puts "lines=#{nline} words=#{nword} chars=#{nchar}"
+end
+
+wc(__FILE__)
+
+#2
+def reverse(input)
+  open(input, "r+") do |f|
+    lines = f.readlines
+    f.rewind
+    f.truncate(0)
+    f.write lines.reverse.join()
+  end
+end
+
+p reverse(ARGV[0])
