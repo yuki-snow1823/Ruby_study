@@ -13,4 +13,4 @@ File.open(filename, "wb") do |f|
   f.write text.encode("utf-8")
 end
 
-	# <div class="main_text"><br /> が本海野スタート
+	# <div class="main_text"><br /> が本文のスタート
