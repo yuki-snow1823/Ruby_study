@@ -28,3 +28,4 @@ puts /Ruby/ =~ "yet anothe Ruby hacker"
 # =~ 一致する場所
 # /i 英語の大文字小文字を判断しない
 # だから、if /aaa/ =~ AAAとかすれば、一致するものだけを取る構文ができる
+# nilとfalse以外は通る
