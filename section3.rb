@@ -8,11 +8,11 @@ puts "こんにちは" + name
 
 # 例えばファイルを開いて中身を出力するプログラムも作ることができる
 pattern = Regexp.new(ARGV[0]) # 入力された一つ目
-filename = ARGV[1] # 2つめ
+filename = ARGV[1] # 2つめ。少しでも同じ表現があればその行が出力される
 
 file = File.open(filename)
 file.each do |line|
-  if pattern =~line #くっついているところに意味がある
+  if pattern =~ line #くっついているところに意味がある
     print line
   end
 end 
@@ -22,6 +22,7 @@ file.close
 def hello
   puts "こんにちは"
 end
+hello()
 
 # requireを使えば、他のファイルのメソッドも呼び出せる
-hello()
+## ppメソッドはオブジェクトに対して使った時に改行をして見やすくしてくれる
