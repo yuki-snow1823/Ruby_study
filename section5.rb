@@ -13,6 +13,7 @@ end
 # 条件がいくつもある場合、elsifでもいいが、参照するオブジェクトが一つならcaseで十分
 
 tags = ["A", "IMG"] # 何かの要素を足せば最後の条件にもヒットする
+# 配列の要素の分岐とかに良さそう
 tags.each do |tagname|
   case tagname
   when "P", "A"
