@@ -142,3 +142,39 @@ url = URI.parse("http://www.ruby-lang.org/ja/") # データを解析して集合
 http = Net::HTTP.start(url.host, url.port)
 doc = http.get(url.path)
 puts doc.body
+
+# アクセスメソッド復習
+
+# オブジェクトの内部のインスタンス変数をいじる事は、普通できない
+# 内部の情報は操作できない
+
+
+class HelloWorld
+  def name
+    @name
+  end
+
+  def name =(value) # ある種こう言うメソッド
+    @name = value
+  end
+end
+
+# XXX.name = value みたいな感じで使える
+
+# ただ、こんな感じでメソッドをバンバン増やすと見辛くなる
+# そこで、簡単な記述にする方法がある 
+
+# attr_render :name 参照
+# attr_writer :name 変更
+# attr_accesor :name 両方
+
+# 上の文は
+
+class HelloWorld
+  attr_accesor :name
+end
+
+# これで同じ
+
+# 実際の使い方について
+# https://qiita.com/ngron/items/dd3cd8eb8ef58bd1c1fc
