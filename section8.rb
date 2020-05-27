@@ -4,15 +4,17 @@
 
 # newで作成できる
 ary = Array.new
+# たい焼きの型とたい焼きのイメージ
 
 p ary
 p ary.class
-p ary.instance_of?(Array)
+p ary.instance_of?(Array) # true
 
-# 時計クラスからアナログ、デジタルを継承する
+# 時計クラスから継承をしてアナログ時計、デジタル時計を作る
 # 継承元をスーパークラス、継承先をサブクラスと言う
 p ary.is_a?(Object)
 
+# メソッドみたいにクラスも自分で作るということ
 class HelloWorld
   # newをすると呼び出される、引数を渡さなければRubyになる
   def initialize(myname = "Ruby")
@@ -24,6 +26,9 @@ class HelloWorld
     puts "Hello World. I am #{@name}"
   end
 end
+
+# こんな感じで複数指定もできる
+# https://teratail.com/questions/233398
 
 # bobのHelloWorldクラス
 bob = HelloWorld.new("Bob")
@@ -47,6 +52,7 @@ Hoge.new.hoge # => hoge
 
 
 # クラスメソッド
+# 入れ込むことができる
 class Hoge
   class << self
     def hoge
@@ -56,7 +62,7 @@ class Hoge
 end
 Hoge.hoge # => hoge
 
-# 定数の参照
+# 定数（一度入れたら変更不可、大文字開始）の参照
 class Hello
   Version = 1.1
 end
