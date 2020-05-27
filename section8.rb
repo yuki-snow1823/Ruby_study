@@ -178,3 +178,10 @@ end
 
 # 実際の使い方について
 # https://qiita.com/ngron/items/dd3cd8eb8ef58bd1c1fc
+
+
+# クラスメソッドについて
+# クラスオブジェクトをレシーバー(.のまえ)にする
+
+# class << クラス名 end　と言う不思議な書き方をする
+# で、これが class <<self　でもいいって事
