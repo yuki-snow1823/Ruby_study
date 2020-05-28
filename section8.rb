@@ -185,3 +185,25 @@ end
 
 # class << クラス名 end　と言う不思議な書き方をする
 # で、これが class <<self　でもいいって事
+
+# @@ がつくのはクラス変数。そのクラスの中で全て参照できる
+# 例えば、クラスメソッドで、クラス変数に何かを加算する処理をすれば、どんどん増える
+
+class SayCount
+  @@count = 0
+  def SayCount.count
+    @@count
+  end
+  def say
+    @@count += 1
+  end
+end
+
+Bob = SayCount.new
+Bob.say
+p SayCount.count # 1
+
+# private :メソッド名　呼び出しの制限
+
+# クラスの拡張
+
