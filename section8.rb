@@ -207,3 +207,38 @@ p SayCount.count # 1
 
 # クラスの拡張
 
+class 追加後 < 追加前
+
+  super(hello)
+  puts "a"
+
+end
+# helloとaが呼ばれる
+
+class 追加前
+  def hello(name)
+     "Hello #{name}"
+  end
+end
+
+# https://www.javadrive.jp/ruby/inherit/index1.html
+# 継承の例
+
+# superはvueのスロットみたいに、親の内容入れつつ何か書き加える時に使えそう
+
+# メソッドの名前変更
+# alias 別名 メソッド名
+# alias :別名 :メソッド名
+# 再定義可能
+
+# 特異クラス
+
+class << str1
+  def hello
+  end
+end
+
+# str.hello
+
+# ※moduleは継承できないし、インスタンスをもてない
+
